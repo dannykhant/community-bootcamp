@@ -25,25 +25,26 @@
 -- 	draft_number text,
 -- 	season_stats season_stats[],
 -- 	scoring_class scoring_class,
+-- 	is_active boolean,
 -- 	years_since_last_season integer,
 -- 	current_season integer,
 -- 	primary key(player_name, current_season)
 -- )
 
 -- // Check to create seed query
--- select min(season) from player_seasons
+-- select min(season), max(season) from player_seasons
 
 -- // Main query
 insert into players
 with yesterday as (
 	select *
 	from players
-	where current_season = 2000
+	where current_season = 2004
 )
 , today as (
 	select *
 	from player_seasons
-	where season = 2001
+	where season = 2005
 )
 select 
 	coalesce(t.player_name, y.player_name) player_name,
@@ -78,6 +79,7 @@ select
 			end::scoring_class
 		else y.scoring_class
 	end as scoring_class,
+	t.season is not null as is_active,
 	case when t.season is not null then 0
 		else y.years_since_last_season + 1
 	end as years_since_last_season,
