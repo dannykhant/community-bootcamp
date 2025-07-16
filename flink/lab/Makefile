@@ -48,8 +48,8 @@ down:
 job:
 	docker compose exec jobmanager ./bin/flink run -py /opt/src/start_job.py --pyFiles /opt/src -d
 
-aggregation_job:
-	docker compose exec jobmanager ./bin/flink run -py /opt/src/job/aggregation_job.py --pyFiles /opt/src -d
+agg_job:
+	docker compose exec jobmanager ./bin/flink run -py /opt/src/agg_job.py --pyFiles /opt/src -d
 
 .PHONY: stop
 ## Stops all services in Docker compose
