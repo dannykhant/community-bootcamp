@@ -1,0 +1,2195 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.0514.2217                               -->
+<workbook original-version='18.1' source-build='2025.2.0 (20252.25.0514.2217)' source-platform='mac' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <repository-location id='Book3_17531599557060' path='/workbooks' revision='1.0' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='events.csv+ (Multiple Connections)' inline='true' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='events' name='textscan.10c575c06114lp1dp9niv1i0uqzb'>
+            <connection class='textscan' directory='/Users/danny/Downloads' filename='events.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+          <named-connection caption='devices' name='textscan.1bj8ub11o4abqr11tqazm11mt3v2'>
+            <connection class='textscan' directory='/Users/danny/Downloads' filename='devices.csv' password='' server='' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.10c575c06114lp1dp9niv1i0uqzb' name='events.csv' table='[events#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+              <column datatype='string' name='user_id' ordinal='0' />
+              <column datatype='string' name='device_id' ordinal='1' />
+              <column datatype='string' name='referrer' ordinal='2' />
+              <column datatype='string' name='host' ordinal='3' />
+              <column datatype='string' name='url' ordinal='4' />
+              <column datatype='datetime' name='event_time' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1bj8ub11o4abqr11tqazm11mt3v2' name='devices.csv' table='[devices#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+              <column datatype='string' name='device_id' ordinal='0' />
+              <column datatype='string' name='browser_type' ordinal='1' />
+              <column datatype='string' name='os_type' ordinal='2' />
+              <column datatype='string' name='device_type' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[browser_type]' value='[devices.csv].[browser_type]' />
+          <map key='[device_id (devices.csv)]' value='[devices.csv].[device_id]' />
+          <map key='[device_id]' value='[events.csv].[device_id]' />
+          <map key='[device_type]' value='[devices.csv].[device_type]' />
+          <map key='[event_time]' value='[events.csv].[event_time]' />
+          <map key='[host]' value='[events.csv].[host]' />
+          <map key='[os_type]' value='[devices.csv].[os_type]' />
+          <map key='[referrer]' value='[events.csv].[referrer]' />
+          <map key='[url]' value='[events.csv].[url]' />
+          <map key='[user_id]' value='[events.csv].[user_id]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[user_id]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>user_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device_id]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>device_id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>referrer</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[referrer]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>referrer</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>host</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[host]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>host</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>url</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[url]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>url</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>event_time</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[event_time]</local-name>
+            <parent-name>[events.csv]</parent-name>
+            <remote-alias>event_time</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device_id (devices.csv)]</local-name>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias>device_id</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>browser_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[browser_type]</local-name>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias>browser_type</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>os_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[os_type]</local-name>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias>os_type</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>device_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[device_type]</local-name>
+            <parent-name>[devices.csv]</parent-name>
+            <remote-alias>device_type</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+      </column>
+      <column caption='Mapped Os Type' datatype='string' name='[Calculation_3031907745730977795]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='if contains(lower([os_type]), &quot;windows&quot;) then &quot;Windows&quot;&#10;elseif contains(lower([os_type]), &quot;ubuntu&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;bsd&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;suse&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;red hat&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;gentoo&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;debian&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;fedora&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;centos&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;mac&quot;) then &quot;Mac OS&quot;&#10;else [os_type] end' />
+      </column>
+      <column caption='Mapped Browser' datatype='string' name='[Calculation_4188629162530074624]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='if CONTAINS(LOWER([browser_type]), &quot;chrome&quot;) then &quot;Chrome&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;safari&quot;) then &quot;Safari&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;opera&quot;) then &quot;Opera&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;firefox&quot;) then &quot;Firefox&quot;&#10;elseif CONTAINS([browser_type], &quot;IE&quot;) then &quot;IE&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;bot&quot;) then &quot;Bot&quot;&#10;else &quot;Other&quot; end' />
+      </column>
+      <column caption='devices.csv' datatype='table' name='[__tableau_internal_object_id__].[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]' role='measure' type='quantitative' />
+      <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+      <column caption='Browser Type' datatype='string' name='[browser_type]' role='dimension' type='nominal' />
+      <column caption='Device Id (Devices.Csv)' datatype='string' name='[device_id (devices.csv)]' role='dimension' type='nominal' />
+      <column caption='Device Id' datatype='string' name='[device_id]' role='dimension' type='nominal' />
+      <column caption='Device Type' datatype='string' name='[device_type]' role='dimension' type='nominal' />
+      <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+      <column caption='Host' datatype='string' name='[host]' role='dimension' type='nominal' />
+      <column caption='Os Type' datatype='string' name='[os_type]' role='dimension' type='nominal' />
+      <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+      <column caption='Url' datatype='string' name='[url]' role='dimension' type='nominal' />
+      <column caption='User Id' datatype='string' name='[user_id]' role='dimension' type='nominal' />
+      <column-instance column='[Calculation_3031907745724256257]' derivation='None' name='[none:Calculation_3031907745724256257:nk]' pivot='key' type='nominal' />
+      <group caption='Action (Mapped Browser)' hidden='true' name='[Action (Mapped Browser)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_4188629162530074624]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Mapped Os Type)' hidden='true' name='[Action (Mapped Os Type)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_3031907745730977795]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Mapped Referrer)' hidden='true' name='[Action (Mapped Referrer)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[Calculation_3031907745724256257]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/kl/n4jdrgvs7zd8w012qzf9t71m0000gn/T/tableau-temp/#TableauTemp_02ajphv1yq8ji51014foj0vznrry.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='07/22/2025 02:35:14 AM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='events.csv_FAFF3F9B3D7C4E32A4E163518345C36D' table='[Extract].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' type='table' />
+            <relation name='devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9' table='[Extract].[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]' type='table' />
+          </relation>
+          <cols>
+            <map key='[browser_type]' value='[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9].[browser_type]' />
+            <map key='[device_id (devices.csv)]' value='[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9].[device_id]' />
+            <map key='[device_id]' value='[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D].[device_id]' />
+            <map key='[device_type]' value='[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9].[device_type]' />
+            <map key='[event_time]' value='[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D].[event_time]' />
+            <map key='[host]' value='[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D].[host]' />
+            <map key='[os_type]' value='[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9].[os_type]' />
+            <map key='[referrer]' value='[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D].[referrer]' />
+            <map key='[url]' value='[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D].[url]' />
+            <map key='[user_id]' value='[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D].[user_id]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>user_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[user_id]</local-name>
+              <parent-name>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</parent-name>
+              <remote-alias>user_id</remote-alias>
+              <ordinal>0</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>62667</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device_id]</local-name>
+              <parent-name>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</parent-name>
+              <remote-alias>device_id</remote-alias>
+              <ordinal>1</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4216</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>referrer</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[referrer]</local-name>
+              <parent-name>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</parent-name>
+              <remote-alias>referrer</remote-alias>
+              <ordinal>2</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1377</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>host</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[host]</local-name>
+              <parent-name>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</parent-name>
+              <remote-alias>host</remote-alias>
+              <ordinal>3</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>78</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>url</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[url]</local-name>
+              <parent-name>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</parent-name>
+              <remote-alias>url</remote-alias>
+              <ordinal>4</ordinal>
+              <family>events.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2963</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>event_time</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[event_time]</local-name>
+              <parent-name>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</parent-name>
+              <remote-alias>event_time</remote-alias>
+              <ordinal>5</ordinal>
+              <family>events.csv</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>412320</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device_id (devices.csv)]</local-name>
+              <parent-name>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</parent-name>
+              <remote-alias>device_id</remote-alias>
+              <ordinal>6</ordinal>
+              <family>devices.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5644</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>browser_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[browser_type]</local-name>
+              <parent-name>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</parent-name>
+              <remote-alias>browser_type</remote-alias>
+              <ordinal>7</ordinal>
+              <family>devices.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>137</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>os_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[os_type]</local-name>
+              <parent-name>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</parent-name>
+              <remote-alias>os_type</remote-alias>
+              <ordinal>8</ordinal>
+              <family>devices.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>device_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[device_type]</local-name>
+              <parent-name>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</parent-name>
+              <remote-alias>device_type</remote-alias>
+              <ordinal>9</ordinal>
+              <family>devices.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>456</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Calculation_3031907745724256257:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Bing&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Linkedin&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Instagram&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Twitter&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Google&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Other&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Direct&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;Onsite&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='device_id (devices.csv)' />
+        <field-sort-custom-order field='browser_type' />
+        <field-sort-custom-order field='Calculation_4188629162530074624' />
+        <field-sort-custom-order field='os_type' />
+        <field-sort-custom-order field='Calculation_3031907745730977795' />
+        <field-sort-custom-order field='device_type' />
+      </field-sort-info>
+      <object-graph>
+        <objects>
+          <object caption='devices.csv' id='devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9'>
+            <properties context=''>
+              <relation connection='textscan.1bj8ub11o4abqr11tqazm11mt3v2' name='devices.csv' table='[devices#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                  <column datatype='string' name='device_id' ordinal='0' />
+                  <column datatype='string' name='browser_type' ordinal='1' />
+                  <column datatype='string' name='os_type' ordinal='2' />
+                  <column datatype='string' name='device_type' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9' table='[Extract].[devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9]' type='table' />
+            </properties>
+          </object>
+          <object caption='events.csv' id='events.csv_FAFF3F9B3D7C4E32A4E163518345C36D'>
+            <properties context=''>
+              <relation connection='textscan.10c575c06114lp1dp9niv1i0uqzb' name='events.csv' table='[events#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                  <column datatype='string' name='user_id' ordinal='0' />
+                  <column datatype='string' name='device_id' ordinal='1' />
+                  <column datatype='string' name='referrer' ordinal='2' />
+                  <column datatype='string' name='host' ordinal='3' />
+                  <column datatype='string' name='url' ordinal='4' />
+                  <column datatype='datetime' name='event_time' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='events.csv_FAFF3F9B3D7C4E32A4E163518345C36D' table='[Extract].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[device_id]' />
+              <expression op='[device_id (devices.csv)]' />
+            </expression>
+            <first-end-point object-id='events.csv_FAFF3F9B3D7C4E32A4E163518345C36D' />
+            <second-end-point object-id='devices.csv_3A23819BAB40481DB9CA7F7CAF10EDC9' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_D72E640251BC41C283E3493FBABD6089]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Exploratory Dashboard' type='sheet' worksheet='Traffic by Source' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Exploratory Dashboard' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action2_E5A633C69AF44323A2840232A8F44A73]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Exploratory Dashboard' type='sheet' worksheet='Traffic by OS Type' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Exploratory Dashboard' />
+      </command>
+    </action>
+    <action caption='Filter 3 (generated)' name='[Action3_3234C602DB2B42C598EF94C6B08FD548]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Exploratory Dashboard' type='sheet' worksheet='Traffic by Browser Type' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Exploratory Dashboard' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='External Traffic Breakdown'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column caption='Mapped Os Type' datatype='string' name='[Calculation_3031907745730977795]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if contains(lower([os_type]), &quot;windows&quot;) then &quot;Windows&quot;&#10;elseif contains(lower([os_type]), &quot;ubuntu&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;bsd&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;suse&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;red hat&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;gentoo&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;debian&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;fedora&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;centos&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;mac&quot;) then &quot;Mac OS&quot;&#10;else [os_type] end' />
+            </column>
+            <column caption='Mapped Browser' datatype='string' name='[Calculation_4188629162530074624]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if CONTAINS(LOWER([browser_type]), &quot;chrome&quot;) then &quot;Chrome&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;safari&quot;) then &quot;Safari&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;opera&quot;) then &quot;Opera&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;firefox&quot;) then &quot;Firefox&quot;&#10;elseif CONTAINS([browser_type], &quot;IE&quot;) then &quot;IE&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;bot&quot;) then &quot;Bot&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column caption='Browser Type' datatype='string' name='[browser_type]' role='dimension' type='nominal' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_3031907745724256257]' derivation='None' name='[none:Calculation_3031907745724256257:nk]' pivot='key' type='nominal' />
+            <column caption='Os Type' datatype='string' name='[os_type]' role='dimension' type='nominal' />
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[pcto:cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Calculation_3031907745724256257]' ordering-type='Field' type='PctTotal' />
+            </column-instance>
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+            <column-instance column='[event_time]' derivation='Month-Trunc' name='[tmn:event_time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Browser)]'>
+            <groupfilter function='level-members' level='[Calculation_4188629162530074624]' user:ui-action-filter='[Action3_3234C602DB2B42C598EF94C6B08FD548]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Os Type)]'>
+            <groupfilter function='level-members' level='[Calculation_3031907745730977795]' user:ui-action-filter='[Action2_E5A633C69AF44323A2840232A8F44A73]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Referrer)]'>
+            <groupfilter function='level-members' level='[Calculation_3031907745724256257]' user:ui-action-filter='[Action1_D72E640251BC41C283E3493FBABD6089]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_3031907745724256257:nk]' user:ui-enumeration='all' user:ui-exclude='true' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Referrer)]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Os Type)]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Browser)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[pcto:cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk:2]' scope='rows' value='Traffic' />
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]' scope='cols' value='Month' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+            <encodings>
+              <color column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' />
+              <text column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[pcto:cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk:2]</rows>
+        <cols>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]</cols>
+      </table>
+      <simple-id uuid='{B0DAC937-CE4D-4882-90D9-A15595D30C47}' />
+    </worksheet>
+    <worksheet name='Total Traffic'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column caption='Mapped Os Type' datatype='string' name='[Calculation_3031907745730977795]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if contains(lower([os_type]), &quot;windows&quot;) then &quot;Windows&quot;&#10;elseif contains(lower([os_type]), &quot;ubuntu&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;bsd&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;suse&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;red hat&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;gentoo&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;debian&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;fedora&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;centos&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;mac&quot;) then &quot;Mac OS&quot;&#10;else [os_type] end' />
+            </column>
+            <column caption='Mapped Browser' datatype='string' name='[Calculation_4188629162530074624]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if CONTAINS(LOWER([browser_type]), &quot;chrome&quot;) then &quot;Chrome&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;safari&quot;) then &quot;Safari&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;opera&quot;) then &quot;Opera&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;firefox&quot;) then &quot;Firefox&quot;&#10;elseif CONTAINS([browser_type], &quot;IE&quot;) then &quot;IE&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;bot&quot;) then &quot;Bot&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column caption='Browser Type' datatype='string' name='[browser_type]' role='dimension' type='nominal' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_3031907745724256257]' derivation='None' name='[none:Calculation_3031907745724256257:nk]' pivot='key' type='nominal' />
+            <column caption='Os Type' datatype='string' name='[os_type]' role='dimension' type='nominal' />
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+            <column-instance column='[event_time]' derivation='Month-Trunc' name='[tmn:event_time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Browser)]'>
+            <groupfilter function='level-members' level='[Calculation_4188629162530074624]' user:ui-action-filter='[Action3_3234C602DB2B42C598EF94C6B08FD548]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Os Type)]'>
+            <groupfilter function='level-members' level='[Calculation_3031907745730977795]' user:ui-action-filter='[Action2_E5A633C69AF44323A2840232A8F44A73]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Referrer)]'>
+            <groupfilter function='level-members' level='[Calculation_3031907745724256257]' user:ui-action-filter='[Action1_D72E640251BC41C283E3493FBABD6089]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]'>
+            <groupfilter function='level-members' level='[none:Calculation_3031907745724256257:nk]' user:ui-enumeration='all' user:ui-exclude='true' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Referrer)]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Os Type)]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Browser)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' scope='rows' value='Traffic' />
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]' scope='cols' value='Month' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</rows>
+        <cols>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]</cols>
+      </table>
+      <simple-id uuid='{5E9518B9-D225-469A-85F9-C6AA180CC49A}' />
+    </worksheet>
+    <worksheet name='Total Traffic Breakdown'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_3031907745724256257]' derivation='None' name='[none:Calculation_3031907745724256257:nk]' pivot='key' type='nominal' />
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]'>
+            <groupfilter function='except' user:ui-domain='relevant' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Calculation_3031907745724256257:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:Calculation_3031907745724256257:nk]' member='&quot;Direct&quot;' />
+                <groupfilter function='member' level='[none:Calculation_3031907745724256257:nk]' member='&quot;Onsite&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' scope='rows' value='Traffic' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <size column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' />
+              <text column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' />
+              <color column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Mapped Referrer:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Traffic:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{A9C69302-44D2-4C6A-940A-6AA9CF9A78BA}' />
+    </worksheet>
+    <worksheet name='Total Traffic Instagram'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_3031907745724256257]' derivation='None' name='[none:Calculation_3031907745724256257:nk]' pivot='key' type='nominal' />
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+            <column-instance column='[event_time]' derivation='Month-Trunc' name='[tmn:event_time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]'>
+            <groupfilter function='member' level='[none:Calculation_3031907745724256257:nk]' member='&quot;Instagram&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' scope='rows' value='Traffic' />
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]' scope='cols' value='Month' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</rows>
+        <cols>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]</cols>
+      </table>
+      <simple-id uuid='{6C2501B0-631F-4797-A54C-74E8E7C039B7}' />
+    </worksheet>
+    <worksheet name='Total Traffic Linkedin'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_3031907745724256257]' derivation='None' name='[none:Calculation_3031907745724256257:nk]' pivot='key' type='nominal' />
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+            <column-instance column='[event_time]' derivation='Month-Trunc' name='[tmn:event_time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]'>
+            <groupfilter function='member' level='[none:Calculation_3031907745724256257:nk]' member='&quot;Linkedin&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' scope='rows' value='Traffic' />
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]' scope='cols' value='Month' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</rows>
+        <cols>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]</cols>
+        <annotations>
+          <annotation class='point' id='0' mark-position='1' pullback='0' text-width='180'>
+            <formatted-text>
+              <run bold='true'>Launched v1 bootcamp</run>
+            </formatted-text>
+            <point>
+              <visual-coordinate class='mark'>
+                <tuple-reference>
+                  <tuple-descriptor>
+                    <pane-descriptor>
+                      <x-fields>
+                        <field>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]</field>
+                      </x-fields>
+                      <y-fields>
+                        <field>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</field>
+                      </y-fields>
+                    </pane-descriptor>
+                    <columns>
+                      <field>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</field>
+                      <field>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</field>
+                      <field>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]</field>
+                    </columns>
+                  </tuple-descriptor>
+                  <tuple>
+                    <value>19681</value>
+                    <value>&quot;Linkedin&quot;</value>
+                    <value>#2023-03-01 00:00:00#</value>
+                  </tuple>
+                </tuple-reference>
+              </visual-coordinate>
+            </point>
+            <body x='-158' y='35' />
+          </annotation>
+        </annotations>
+      </table>
+      <simple-id uuid='{9DC78679-F5D7-4EF8-87DC-648B0F9C4268}' />
+    </worksheet>
+    <worksheet name='Total Traffic Twitter'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column caption='Event Time' datatype='datetime' name='[event_time]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_3031907745724256257]' derivation='None' name='[none:Calculation_3031907745724256257:nk]' pivot='key' type='nominal' />
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+            <column-instance column='[event_time]' derivation='Month-Trunc' name='[tmn:event_time:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]'>
+            <groupfilter function='member' level='[none:Calculation_3031907745724256257:nk]' member='&quot;Twitter&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' scope='rows' value='Traffic' />
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]' scope='cols' value='Month' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</rows>
+        <cols>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[tmn:event_time:qk]</cols>
+      </table>
+      <simple-id uuid='{A4A77D20-13A0-4072-8A96-D81EF72D361E}' />
+    </worksheet>
+    <worksheet name='Traffic by Browser Type'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column caption='Mapped Os Type' datatype='string' name='[Calculation_3031907745730977795]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if contains(lower([os_type]), &quot;windows&quot;) then &quot;Windows&quot;&#10;elseif contains(lower([os_type]), &quot;ubuntu&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;bsd&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;suse&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;red hat&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;gentoo&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;debian&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;fedora&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;centos&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;mac&quot;) then &quot;Mac OS&quot;&#10;else [os_type] end' />
+            </column>
+            <column caption='Mapped Browser' datatype='string' name='[Calculation_4188629162530074624]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if CONTAINS(LOWER([browser_type]), &quot;chrome&quot;) then &quot;Chrome&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;safari&quot;) then &quot;Safari&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;opera&quot;) then &quot;Opera&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;firefox&quot;) then &quot;Firefox&quot;&#10;elseif CONTAINS([browser_type], &quot;IE&quot;) then &quot;IE&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;bot&quot;) then &quot;Bot&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column caption='Browser Type' datatype='string' name='[browser_type]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_4188629162530074624]' derivation='None' name='[none:Calculation_4188629162530074624:nk]' pivot='key' type='nominal' />
+            <column caption='Os Type' datatype='string' name='[os_type]' role='dimension' type='nominal' />
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Os Type)]'>
+            <groupfilter function='level-members' level='[Calculation_3031907745730977795]' user:ui-action-filter='[Action2_E5A633C69AF44323A2840232A8F44A73]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Referrer)]'>
+            <groupfilter function='level-members' level='[Calculation_3031907745724256257]' user:ui-action-filter='[Action1_D72E640251BC41C283E3493FBABD6089]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_4188629162530074624:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Referrer)]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Os Type)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' scope='cols' value='Traffic' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_4188629162530074624:nk]</rows>
+        <cols>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</cols>
+      </table>
+      <simple-id uuid='{B98F1F2A-3181-4335-A0AA-92D83BDFD45A}' />
+    </worksheet>
+    <worksheet name='Traffic by OS Type'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column caption='Mapped Os Type' datatype='string' name='[Calculation_3031907745730977795]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if contains(lower([os_type]), &quot;windows&quot;) then &quot;Windows&quot;&#10;elseif contains(lower([os_type]), &quot;ubuntu&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;bsd&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;suse&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;red hat&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;gentoo&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;debian&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;fedora&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;centos&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;mac&quot;) then &quot;Mac OS&quot;&#10;else [os_type] end' />
+            </column>
+            <column caption='Mapped Browser' datatype='string' name='[Calculation_4188629162530074624]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if CONTAINS(LOWER([browser_type]), &quot;chrome&quot;) then &quot;Chrome&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;safari&quot;) then &quot;Safari&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;opera&quot;) then &quot;Opera&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;firefox&quot;) then &quot;Firefox&quot;&#10;elseif CONTAINS([browser_type], &quot;IE&quot;) then &quot;IE&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;bot&quot;) then &quot;Bot&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column caption='Browser Type' datatype='string' name='[browser_type]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_3031907745730977795]' derivation='None' name='[none:Calculation_3031907745730977795:nk]' pivot='key' type='nominal' />
+            <column caption='Os Type' datatype='string' name='[os_type]' role='dimension' type='nominal' />
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Browser)]'>
+            <groupfilter function='level-members' level='[Calculation_4188629162530074624]' user:ui-action-filter='[Action3_3234C602DB2B42C598EF94C6B08FD548]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Referrer)]'>
+            <groupfilter function='level-members' level='[Calculation_3031907745724256257]' user:ui-action-filter='[Action1_D72E640251BC41C283E3493FBABD6089]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' included-values='in-range'>
+            <min>100</min>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745730977795:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Referrer)]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Browser)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' scope='cols' value='Traffic' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745730977795:nk]</rows>
+        <cols>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</cols>
+      </table>
+      <simple-id uuid='{4C2DA0BC-A2A6-426C-ADB9-59974E4793D0}' />
+    </worksheet>
+    <worksheet name='Traffic by Source'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='events.csv+ (Multiple Connections)' name='federated.1a65wjm0ddks6w1ehd9q51ssn1bx' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1a65wjm0ddks6w1ehd9q51ssn1bx'>
+            <column caption='Mapped Referrer' datatype='string' name='[Calculation_3031907745724256257]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if  CONTAINS([referrer],&quot;linkedin&quot;) then &quot;Linkedin&quot;&#10;elseif CONTAINS([referrer],&quot;lnkd.in&quot;) then &quot;Linkedin&quot;&#10;ELSEIF  contains([referrer], &quot;google&quot;) then &quot;Google&quot;&#10;ELSEIF  contains(lower([referrer]), &quot;eczachly&quot;) then &quot;Onsite&quot;&#10;elseif contains(lower([referrer]), &quot;zachwilson&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;techcreator.io&quot;) then &quot;Onsite&quot;&#10;elseif contains([referrer], &quot;dataengineer.io&quot;) then &quot;Onsite&quot;&#10;elseif isnull([referrer]) then &quot;Direct&quot;&#10;elseif contains([referrer], &quot;t.co&quot;) then &quot;Twitter&quot;&#10;elseif CONTAINS([referrer], &quot;instagram&quot;) then &quot;Instagram&quot;&#10;elseif CONTAINS([referrer],&quot;bing&quot;) then &quot;Bing&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column caption='Mapped Os Type' datatype='string' name='[Calculation_3031907745730977795]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if contains(lower([os_type]), &quot;windows&quot;) then &quot;Windows&quot;&#10;elseif contains(lower([os_type]), &quot;ubuntu&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;bsd&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;suse&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;red hat&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;gentoo&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;debian&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;fedora&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;centos&quot;) then &quot;Linux&quot;&#10;elseif contains(lower([os_type]), &quot;mac&quot;) then &quot;Mac OS&quot;&#10;else [os_type] end' />
+            </column>
+            <column caption='Mapped Browser' datatype='string' name='[Calculation_4188629162530074624]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='if CONTAINS(LOWER([browser_type]), &quot;chrome&quot;) then &quot;Chrome&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;safari&quot;) then &quot;Safari&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;opera&quot;) then &quot;Opera&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;firefox&quot;) then &quot;Firefox&quot;&#10;elseif CONTAINS([browser_type], &quot;IE&quot;) then &quot;IE&quot;&#10;elseif CONTAINS(LOWER([browser_type]), &quot;bot&quot;) then &quot;Bot&quot;&#10;else &quot;Other&quot; end' />
+            </column>
+            <column-instance column='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' pivot='key' type='quantitative' />
+            <column caption='events.csv' datatype='table' name='[__tableau_internal_object_id__].[events.csv_FAFF3F9B3D7C4E32A4E163518345C36D]' role='measure' type='quantitative' />
+            <column caption='Browser Type' datatype='string' name='[browser_type]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_3031907745724256257]' derivation='None' name='[none:Calculation_3031907745724256257:nk]' pivot='key' type='nominal' />
+            <column caption='Os Type' datatype='string' name='[os_type]' role='dimension' type='nominal' />
+            <column caption='Referrer' datatype='string' name='[referrer]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Browser)]'>
+            <groupfilter function='level-members' level='[Calculation_4188629162530074624]' user:ui-action-filter='[Action3_3234C602DB2B42C598EF94C6B08FD548]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Os Type)]'>
+            <groupfilter function='level-members' level='[Calculation_3031907745730977795]' user:ui-action-filter='[Action2_E5A633C69AF44323A2840232A8F44A73]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Calculation_3031907745724256257:nk]' />
+              <groupfilter function='union'>
+                <groupfilter function='member' level='[none:Calculation_3031907745724256257:nk]' member='&quot;Direct&quot;' />
+                <groupfilter function='member' level='[none:Calculation_3031907745724256257:nk]' member='&quot;Onsite&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Os Type)]</column>
+            <column>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[Action (Mapped Browser)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]' scope='cols' value='Traffic' />
+          </style-rule>
+          <style-rule element='field-labels-decoration'>
+            <format attr='font-style' value='normal' />
+            <format attr='font-weight' value='normal' />
+            <format attr='text-orientation' value='-90' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]</rows>
+        <cols>[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[__tableau_internal_object_id__].[cnt:events.csv_FAFF3F9B3D7C4E32A4E163518345C36D:qk]</cols>
+      </table>
+      <simple-id uuid='{B2914751-08D5-4B18-A908-07B1BAAA1205}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Executive Dashboard'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='92049' id='16' param='horz' type-v2='layout-flow' w='98910' x='545' y='7080'>
+            <zone h='92049' id='14' type-v2='layout-basic' w='98910' x='545' y='7080'>
+              <zone h='92049' id='10' param='horz' type-v2='layout-flow' w='65712' x='33743' y='7080'>
+                <zone h='92049' id='5' type-v2='layout-basic' w='65712' x='33743' y='7080'>
+                  <zone h='30409' id='3' name='Total Traffic Linkedin' w='65712' x='33743' y='7080'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='31229' id='8' name='Total Traffic Instagram' w='65712' x='33743' y='37489'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone h='30411' id='12' name='Total Traffic Twitter' w='65712' x='33743' y='68718'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='92049' id='13' name='Total Traffic Breakdown' w='33198' x='545' y='7080'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone forceUpdate='true' h='6209' id='18' type-v2='text' w='98910' x='545' y='871'>
+            <formatted-text>
+              <run bold='true' fontsize='15' underline='true'>Executive Dashboard</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1100' minheight='1100' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='22' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98258' id='21' param='vert' type-v2='layout-flow' w='98910' x='545' y='871'>
+                <zone forceUpdate='true' h='6209' id='18' type-v2='text' w='98910' x='545' y='871'>
+                  <formatted-text>
+                    <run bold='true' fontsize='15' underline='true'>Executive Dashboard</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='92049' id='13' is-fixed='true' name='Total Traffic Breakdown' w='33198' x='545' y='7080'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='235' h='30409' id='3' is-fixed='true' name='Total Traffic Linkedin' w='65712' x='33743' y='7080'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='242' h='31229' id='8' is-fixed='true' name='Total Traffic Instagram' w='65712' x='33743' y='37489'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='235' h='30411' id='12' is-fixed='true' name='Total Traffic Twitter' w='65712' x='33743' y='68718'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{021EDB53-BB20-4176-9441-73EF4ED236E2}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Exploratory Dashboard'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='69390' id='8' param='horz' type-v2='layout-flow' w='98910' x='545' y='29739'>
+            <zone h='69390' id='6' type-v2='layout-basic' w='98910' x='545' y='29739'>
+              <zone h='69390' id='5' name='External Traffic Breakdown' w='54497' x='44958' y='29739'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='69390' id='12' name='Total Traffic' w='44413' x='545' y='29739'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='23421' id='10' name='Traffic by OS Type' show-title='false' w='33356' x='33288' y='6318'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='23421' id='11' name='Traffic by Source' show-title='false' w='32743' x='545' y='6318'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone h='23421' id='13' name='Traffic by Browser Type' show-title='false' w='32811' x='66644' y='6318'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone forceUpdate='true' h='5447' id='14' type-v2='text' w='98910' x='545' y='871'>
+            <formatted-text>
+              <run bold='true' fontsize='15'>Exploratory Dashboard</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1250' minheight='1250' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='18' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98258' id='17' param='vert' type-v2='layout-flow' w='98910' x='545' y='871'>
+                <zone forceUpdate='true' h='5447' id='14' type-v2='text' w='98910' x='545' y='871'>
+                  <formatted-text>
+                    <run bold='true' fontsize='15'>Exploratory Dashboard</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='179' h='23421' id='11' is-fixed='true' name='Traffic by Source' show-title='false' w='32743' x='545' y='6318'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='179' h='23421' id='10' is-fixed='true' name='Traffic by OS Type' show-title='false' w='33356' x='33288' y='6318'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='179' h='23421' id='13' is-fixed='true' name='Traffic by Browser Type' show-title='false' w='32811' x='66644' y='6318'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='69390' id='12' is-fixed='true' name='Total Traffic' w='44413' x='545' y='29739'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='69390' id='5' is-fixed='true' name='External Traffic Breakdown' w='54497' x='44958' y='29739'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{439095E6-2177-4E02-ACF5-B9A302CA3F2F}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Traffic by Source'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1E0153E7-6396-40CA-83A5-1308988850B2}' />
+    </window>
+    <window class='worksheet' name='External Traffic Breakdown'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A745D269-9C15-4931-8AF2-506D09BA42F9}' />
+    </window>
+    <window class='worksheet' name='Total Traffic'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{1407FDB7-A1C6-4B8B-BC46-6F2B74940CE8}' />
+    </window>
+    <window class='worksheet' name='Total Traffic Breakdown'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{8504CE6C-DEDB-4CF4-AABB-FFC5CB4F55B6}' />
+    </window>
+    <window class='worksheet' name='Total Traffic Linkedin'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{5F2AF689-8DBE-445A-A371-217B7F484C4B}' />
+    </window>
+    <window class='worksheet' name='Total Traffic Instagram'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B3A6C0F4-107C-440A-9DFC-8BC1868557A9}' />
+    </window>
+    <window class='worksheet' name='Total Traffic Twitter'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1a65wjm0ddks6w1ehd9q51ssn1bx].[none:Calculation_3031907745724256257:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EB41CD3F-242B-4ADB-8F29-EBFD6BCC2F00}' />
+    </window>
+    <window class='worksheet' name='Traffic by OS Type'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A34E371C-995F-48DB-A3EE-FF8C8FD87B3B}' />
+    </window>
+    <window class='worksheet' name='Traffic by Browser Type'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C4D516ED-7FB0-4673-8D04-6F45439AEACA}' />
+    </window>
+    <window class='dashboard' name='Exploratory Dashboard'>
+      <viewpoints>
+        <viewpoint name='External Traffic Breakdown'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Total Traffic'>
+          <zoom type='entire-view' />
+          <floating-toolbar-visibility value='2' />
+        </viewpoint>
+        <viewpoint name='Traffic by Browser Type' />
+        <viewpoint name='Traffic by OS Type' />
+        <viewpoint name='Traffic by Source' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{D968E9AC-1002-4459-BD01-EC018CFABB61}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Executive Dashboard'>
+      <viewpoints>
+        <viewpoint name='Total Traffic Breakdown' />
+        <viewpoint name='Total Traffic Instagram'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Total Traffic Linkedin'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Total Traffic Twitter'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{8A4F67C1-F8E2-4271-9F3D-49DA4E86A92D}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='384' name='Executive Dashboard' width='384'>
+      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
+      62iaRigUorOzk0AgwPHjx/F6veTk5KCqKnV1dSQlJeHz+di+fTvNzc1cfvnlaJrWt0Lp3Llz
+      CQaDbN26lQkTJmCxWEbNdYTKykrKy8sBSEhIoLu7G1VV8fv9dHR0kJ2dTU9PD42NjeTl5aEo
+      Cg0NDVitVgoKCtiwYQPBYJDy8nI0TUPXdVatWiVdQEKI2FBVFZvNhtfrpbm5mfT0dILBIHV1
+      dRw4cID9+/ezbNky1q1bx4kTJ3j//fdpamoiFApx8OBBjh49yt69ewHIzc0lIyODPXv2kJeX
+      R0dHB5s3b6alpYXq6mq8Xi+rV6+mp6eHQCDA9u3bqa6ujvFPYOg2bdoEwMaNG9m1axfbtm1j
+      x44dNDc388477+D3+/nwww8BGDduHHl5eWzdupWioqK+8Dt06BBtbW20trbKGYAQInYmTJjA
+      tm3bsNvtdHd34/V6qaurw2w2097eTmJiIhUVFRw4cICpU6eSn59PXV0dkydPJi0tjcOHDwPQ
+      09PDW2+9xaJFi0hMTOTmm29G13WWLl1KQUEB06dPJzMzkxUrVnD11VcDsHr1atra2khKSorl
+      j2BQTs2k/qzy8nLq6uro7OyktbWVpqYmTKbeZj0QCLBkyRIqKipISUkhOzsbXdd57733yMjI
+      oKSkRAJACBE7Ho+HZcuWccstt7Blyxa6urrwer193zeZTCiKQk5ODsuXL6empob8/PyztvPx
+      xx9jsVj4+OOPGT9+PLt27SIhIQGTyURJSQlvvfUWHo+HjIwMNm3ahM/no6mpCYfDEc23O2SB
+      QIAtW7bQ0NCAzWajubmZtWvX9oXjKRaLpS/ITi33vHv3bnRdZ/v27RQWFlJfX08oFKKtrY3U
+      1FQ2bdokw0CFEPHF6/VisVjOujir6zrBYHBQE6h0Xcfn82G1WlEUhXA4jM/n61ukzufzjZpr
+      AJ2dnSQkJKCqKsFgkFAohNVqPet5uq4TCASwWCz9bkfXdfx+f9/71nVdAkAIIYxKLgILIYRB
+      SQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRB
+      SQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRBSQAIIYRB
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
