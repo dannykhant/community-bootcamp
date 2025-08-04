@@ -1,0 +1,128 @@
+# DE Concept
+
+- Data Engineering
+    - Raw data → Refine/ Transformation → Data models
+- Workflow
+    - Data Production → Transformation → Serving
+- Data Transformation
+    - Raw data → Curated data
+- Data Serving
+    - Facilitate the data for the other data partners
+- Upstream vs Downstream
+    - DE sit between
+    - Upstream
+        - DBA
+        - SWE
+    - Downstream
+        - Data Analyst
+        - Data Scientist
+        - PM
+- OLTP vs OLAP
+    - OLTP
+        - Store transactional data
+        - Efficient for writes, updates
+        - Normalization for data - 1NF, 2NF, 3NF are main NFs
+    - OLAP
+        - aka Data Warehouse
+        - Store analytical data
+        - Efficient for reads
+        - Dimensional data modeling
+        - Schema on write
+- ETL
+    - Extract - Transform - Load
+    - Layers
+        - Staging → Core
+        - Staging Layer
+            - Extract from Source and dump the data
+            - Transient vs Persistent
+                - Transient - Temporary
+                    - 99% of times used
+                - Persistent
+        - Core Layer
+            - Transform from Staging and Model
+- Incremental Loading
+    - After very first time back-filling, needs to load the data incrementally
+- Dimensional Modeling
+    - Star & Snowflake Schema
+        - 99% of times - Star used
+        - Key difference: Snowflake has hierarchy of dimensions
+    - Fact vs Dimension
+        - Fact stores only numeric values
+        - Non-numeric will go to Dimension
+- Slowly Changing Dimension
+    - Type-0
+        - Dimension that will never change
+    - Type-1
+        - UPSERT
+        - Overwrites it, No history keeps
+    - Type-2
+        - History
+        - Keep history with 3 attributes - start_date, end_date, in_use
+    - Type-3
+        - Prev Value
+        - Keep the previous value of dimension
+- Data Lake
+    - Structured, Semi-structured, Unstructured
+    - Schema on read
+    - Cheap
+- Data Lakehouse
+    - Metadata Layer that holds the data schema for modeling
+    - Allow querying same like in Data Warehouse
+- File Formats
+    - Row Based
+        - CSV, AVRO
+        - Used for transactional data
+        - Good for Writes & Updates by using a Key
+        - Write row by row
+    - Column Based
+        - Parquet, ORC
+        - Write column by column
+        - Reads only the columns that are asked
+        - Parquet: Run-length compression algorithm
+- Delta Format
+    - Open table format built on top of Parquet format
+    - Transaction Log is used to store every information
+        - Stores in JSON files
+    - Versioning
+        - Support time-traveling
+    - Schema Evolution
+    - ACID
+        - Atomicity: All or nothing
+        - Consistency: Rules must be followed
+        - Isolation: No interference
+        - Durability: It’s saved forever
+- Medallion Architecture
+    - Bronze → Silver → Gold Layer
+    - Bronze
+        - No change, pure raw
+    - Silver
+        - Apply transformation, cleaning
+    - Gold
+        - Aggregated, Fact, Dimension tables
+- Azure Data Engineering
+    - Azure Events Hub
+        - For streaming data storing
+    - Cloud SQL Database
+        - MySQL, PostgreSQL, SQL Server
+    - Azure Data Lake Storage Gen2
+        - It has Hierarchical Namespace
+    - Azure Data Factory
+        - For ETL/ELT
+    - Azure Databricks
+        - For Spark
+    - Azure Synapse Analytics
+        - Data warehouse
+    - PowerBi
+        - For reporting
+    - Azure Purview
+        - For data governance
+    - Azure Devops
+        - For CI/CD
+    - Azure Key Vault
+        - To manage secrets
+    - Entra ID
+        - Enterprise User Mgmt
+    - Azure Monitor
+        - To monitor pipelines
+    - Microsoft Cost Mgmt
+        - To mange budgets
